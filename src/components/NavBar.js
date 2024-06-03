@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
+import Spinner from './Spinner'
 export class Navbar extends Component {
   static propTypes = {};
 
   render() {
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               News Gorilla
             </a>
+            
             <button
               className="navbar-toggler"
               type="button"
@@ -38,6 +39,20 @@ export class Navbar extends Component {
                     Link
                   </a>
                 </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="business">business</a></li>
+                <li className="nav-item">
+                  <a className="nav-link" href="entertainment">entertainment</a></li>
+                <li className="nav-item">
+                  <a className="nav-link" href="general">general</a></li>
+                <li className="nav-item">
+                  <a className="nav-link" href="health">health</a></li>
+                <li className="nav-item">
+                  <a className="nav-link" href="science">science</a></li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">sports</a></li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">technology</a></li>
               </ul>
             </div>
           </div>
