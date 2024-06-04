@@ -10,12 +10,14 @@ export class News extends Component {
   static defaultProps = {
     country: 'in',
     pageSize: 10,
-    category: "general"
+    category: "general",
+    publishedAt: 10-12-2024,
   }
   static propTypes ={
     country: PropTypes.string,
     pageSize: PropTypes.number,
     category: PropTypes.string,
+    publishedAt: PropTypes.number
   }
   constructor() {
     super();
@@ -71,7 +73,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h2>New Gorilla Breaking Headlines</h2>
+        <h1 className="text-center">New Gorilla Breaking Headlines</h1>
         {this.state.loading && <Spinner/>}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
@@ -82,6 +84,9 @@ export class News extends Component {
                   title={element.title}
                   description={element.description}
                   imageUrl={element.urlToImage}
+                  publishedAt={element.publishedAt}
+                  author={element.author}
+                  source={element.source.name}
                 />
               </div>
             );
