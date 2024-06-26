@@ -13,9 +13,10 @@ const News = ({ apiKey, pageSize = 8, country = 'in', category = 'general' }) =>
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
-
+  //https://gnews.io/api/v4/top-headlines?category=general&apikey=cd47c929c2553197e0ddd399f04dbea2&country
+  //https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}
   const updateNews = async () => {
-    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+    const url = `https://gnews.io/api/v4/top-headlines?category=${category}&apikey=${apiKey}&country=${country}&page=${page}&pageSize=${pageSize}`;
     setLoading(true);
     try {
       const data = await fetch(url);
@@ -36,7 +37,7 @@ const News = ({ apiKey, pageSize = 8, country = 'in', category = 'general' }) =>
   };
 
   const fetchMoreData = async () => {
-    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${page + 1}&pageSize=${pageSize}`;
+    const url = `https://gnews.io/api/v4/top-headlines?category=${category}&apikey=${apiKey}&country=${country}&page=${page}&pageSize=${pageSize}`;
     setPage(page + 1);
     try {
       const data = await fetch(url);
@@ -76,7 +77,7 @@ const News = ({ apiKey, pageSize = 8, country = 'in', category = 'general' }) =>
                     <NewsItem
                       title={element.title ? element.title : ''}
                       description={element.description ? element.description : ''}
-                      imageUrl={element.urlToImage}
+                      imageUrl={element.image}
                       newsUrl={element.url}
                       author={element.author}
                       date={element.publishedAt}
